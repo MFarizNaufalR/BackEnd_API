@@ -30,9 +30,9 @@ const postsController = {
     },
     create: async (req, res) => {
         try {
-            const { title, content } = req.body
-            const sql = "insert into post (title, content) values (?, ?)"
-            const [rows, fields] = await pool.query(sql, [title, content])
+            const { title, content, link } = req.body
+            const sql = "insert into post (title, content, link) values (?, ?, ?)"
+            const [rows, fields] = await pool.query(sql, [title, content, link])
             res.json({
                 data: rows
             })
